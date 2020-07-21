@@ -4,7 +4,7 @@ const TypeList = (props) => {
   return (
     <div>
       {props.types.map((type) => (
-        <div>{type.name}</div>
+        <div key={type.id}>{type.name}</div>
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ const PokemonList = (props) => {
   return (
     <div>
       {props.pokemons.map((pokemon) => (
-        <div>{pokemon.name}</div>
+        <div key={pokemon.id}>{pokemon.name}</div>
       ))}
     </div>
   );

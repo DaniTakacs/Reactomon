@@ -3,8 +3,12 @@ import React from "react";
 const Navbar = (props) => {
   return (
     <div>
-      <button>Pokemons</button>
-      <button>Types</button>
+      <button onClick={props.click} value="pokemons">
+        Pokemons
+      </button>
+      <button onClick={props.click} value="types">
+        Types
+      </button>
     </div>
   );
 };
