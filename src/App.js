@@ -8,10 +8,16 @@ import PokemonDetail from "./Components/PokemonDetail/PokemonDetail";
 class App extends React.Component {
   state = {
     activeButton: "pokemons",
+    pokemonId: 0,
   };
 
   onButtonClick = (e) => {
     this.setState({ ...this.state, activeButton: e.target.value });
+  };
+
+  onPokemonClick = (id) => {
+    this.setState({ ...this.state, pokemonId: id });
+    console.log(id);
   };
 
   render() {
@@ -27,7 +33,10 @@ class App extends React.Component {
 
     const content =
       this.state.activeButton === "pokemons" ? (
-        <PokemonList pokemons={pokemons} />
+        <PokemonList
+          pokemons={pokemons}
+          click={(id) => this.onPokemonClick(id)}
+        />
       ) : (
         <TypeList types={types} />
       );
@@ -37,6 +46,7 @@ class App extends React.Component {
         <Navbar click={this.onButtonClick} />
         {content}
         {/* <PokemonDetail pokemon={singlePokemon} /> */}
+        <p>Selected Pokemon: {this.state.pokemonId}</p>
       </div>
     );
   }
