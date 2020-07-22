@@ -1,0 +1,19 @@
+.button-selected {
+  background-color: "#3A5DA2";
+  color: "#FACC00";
+  font: "inherit";
+  cursor: "pointer";
+  border-radius: "12px";
+  margin-left: "100px";
+  margin-right: "100px";
+}
+
+.button-not-selected {
+  background-color: "white";
+  color: "black";
+  font: "inherit";
+  cursor: "pointer";
+  border-radius: "12px";
+  margin-left: "100px";
+  margin-right: "100px";
+}

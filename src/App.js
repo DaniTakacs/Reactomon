@@ -16,8 +16,10 @@ class App extends React.Component {
   };
 
   onPokemonClick = (id) => {
-    this.setState({ ...this.state, pokemonId: id });
-    console.log(id);
+    this.setState({
+      ...this.state,
+      pokemonId: id,
+    });
   };
 
   render() {
@@ -43,7 +45,10 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Navbar click={this.onButtonClick} />
+        <Navbar
+          click={this.onButtonClick}
+          activeButton={this.state.activeButton}
+        />
         {content}
         {/* <PokemonDetail pokemon={singlePokemon} /> */}
         <p>Selected Pokemon: {this.state.pokemonId}</p>
