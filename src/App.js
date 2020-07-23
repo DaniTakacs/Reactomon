@@ -4,12 +4,22 @@ import Navbar from "./Components/Navbar/Navbar";
 import PokemonList from "./Components/PokemonList/PokemonList";
 import TypeList from "./Components/TypeList/TypeList";
 import PokemonDetail from "./Components/PokemonDetail/PokemonDetail";
+import axios from "axios";
 
 class App extends React.Component {
   state = {
     activeButton: "pokemons",
     pokemonId: 0,
+    pokemons: [],
   };
+
+  componentDidMount() {
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon")
+      .then((response) =>
+        this.setState({ ...this.state, pokemons: response.data.results })
+      );
+  }
 
   onButtonClick = (e) => {
     this.setState({ ...this.state, activeButton: e.target.value });
@@ -23,6 +33,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.pokemons);
     const pokemons = [
       { name: "Pikachu", id: 1 },
       { name: "Bulbasaur", id: 2 },
@@ -41,7 +52,7 @@ class App extends React.Component {
     const content =
       this.state.activeButton === "pokemons" ? (
         <PokemonList
-          pokemons={pokemons}
+          pokemons={this.state.pokemons}
           click={(id) => this.onPokemonClick(id)}
         />
       ) : (
