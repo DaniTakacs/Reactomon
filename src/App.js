@@ -9,8 +9,9 @@ import axios from "axios";
 class App extends React.Component {
   state = {
     activeButton: "pokemons",
-    pokemonId: 0,
+    pokemonId: "",
     pokemons: [],
+    types: [],
   };
 
   componentDidMount() {
@@ -22,6 +23,13 @@ class App extends React.Component {
   }
 
   onButtonClick = (e) => {
+    if (this.state.type != [] && this.state.activeButton === "pokemons") {
+      axios
+        .get("https://pokeapi.co/api/v2/type")
+        .then((response) =>
+          this.setState({ ...this.state, types: response.data.results })
+        );
+    }
     this.setState({ ...this.state, activeButton: e.target.value });
   };
 
@@ -33,20 +41,10 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.pokemons);
-    const pokemons = [
-      { name: "Pikachu", id: 1 },
-      { name: "Bulbasaur", id: 2 },
-      { name: "Charizard", id: 3 },
-      { name: "Mewtwo", id: 4 },
-      { name: "Eevee", id: 5 },
-      { name: "Lucario", id: 6 },
-      { name: "Gengar", id: 7 },
-    ];
-    const types = [
-      { name: "fire", id: 1 },
-      { name: "water", id: 2 },
-    ];
+    // const types = [
+    //   { name: "fire", id: 1 },
+    //   { name: "water", id: 2 },
+    // ];
     const singlePokemon = { name: "Bulbasaur", height: 7, weight: 69 };
 
     const content =
@@ -56,7 +54,7 @@ class App extends React.Component {
           click={(id) => this.onPokemonClick(id)}
         />
       ) : (
-        <TypeList types={types} />
+        <TypeList types={this.state.types} />
       );
 
     return (
