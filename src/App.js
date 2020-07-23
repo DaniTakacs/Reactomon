@@ -26,9 +26,14 @@ class App extends React.Component {
     const pokemons = [
       { name: "Pikachu", id: 1 },
       { name: "Bulbasaur", id: 2 },
+      { name: "Charizard", id: 3 },
+      { name: "Mewtwo", id: 4 },
+      { name: "Eevee", id: 5 },
+      { name: "Lucario", id: 6 },
+      { name: "Gengar", id: 7 },
     ];
     const types = [
-      { name: "normal", id: 1 },
+      { name: "fire", id: 1 },
       { name: "water", id: 2 },
     ];
     const singlePokemon = { name: "Bulbasaur", height: 7, weight: 69 };

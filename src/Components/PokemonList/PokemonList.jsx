@@ -1,10 +1,15 @@
 import React from "react";
+import "./PokemonList.css";
 
 const PokemonList = (props) => {
   return (
-    <div>
+    <div className="jumbotron">
       {props.pokemons.map((pokemon) => (
-        <div key={pokemon.id} onClick={() => props.click(pokemon.id)}>
+        <div
+          className="card"
+          key={pokemon.id}
+          onClick={() => props.click(pokemon.id)}
+        >
           {pokemon.name}
         </div>
       ))}
