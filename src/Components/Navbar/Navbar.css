@@ -1,19 +1,14 @@
-.button-selected {
-  background-color: "#3A5DA2";
-  color: "#FACC00";
-  font: "inherit";
-  cursor: "pointer";
-  border-radius: "12px";
-  margin-left: "100px";
-  margin-right: "100px";
+.active-button {
+  background-color: #3a5da2 !important;
+  color: #facc00 !important;
 }
 
-.button-not-selected {
-  background-color: "white";
-  color: "black";
-  font: "inherit";
-  cursor: "pointer";
-  border-radius: "12px";
-  margin-left: "100px";
-  margin-right: "100px";
+.base-button {
+  background-color: white;
+  color: lack;
+  font: inherit;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
