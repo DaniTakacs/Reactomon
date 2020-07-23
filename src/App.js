@@ -8,10 +8,10 @@ import axios from "axios";
 
 class App extends React.Component {
   state = {
-    activeButton: "pokemons",
-    pokemonId: "",
+    activeSelection: "pokemons",
     pokemons: [],
     types: [],
+    selectedPokemon: {},
   };
 
   componentDidMount() {
@@ -23,49 +23,50 @@ class App extends React.Component {
   }
 
   onButtonClick = (e) => {
-    if (this.state.type != [] && this.state.activeButton === "pokemons") {
+    if (this.state.type != [] && this.state.activeSelection === "pokemons") {
       axios
         .get("https://pokeapi.co/api/v2/type")
         .then((response) =>
           this.setState({ ...this.state, types: response.data.results })
         );
     }
-    this.setState({ ...this.state, activeButton: e.target.value });
+    this.setState({ ...this.state, activeSelection: e.target.value });
   };
 
   onPokemonClick = (id) => {
-    this.setState({
-      ...this.state,
-      pokemonId: id,
-    });
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) =>
+      this.setState({
+        ...this.state,
+        selectedPokemon: response.data,
+        activeSelection: "single-pokemon",
+      })
+    );
   };
 
   render() {
-    // const types = [
-    //   { name: "fire", id: 1 },
-    //   { name: "water", id: 2 },
-    // ];
-    const singlePokemon = { name: "Bulbasaur", height: 7, weight: 69 };
-
-    const content =
-      this.state.activeButton === "pokemons" ? (
+    let content;
+    if (this.state.activeSelection === "pokemons") {
+      content = (
         <PokemonList
           pokemons={this.state.pokemons}
           click={(id) => this.onPokemonClick(id)}
         />
-      ) : (
-        <TypeList types={this.state.types} />
       );
+    } else if (this.state.activeSelection === "types") {
+      content = <TypeList types={this.state.types} />;
+    } else if (this.state.activeSelection === "single-pokemon") {
+      content = <PokemonDetail pokemon={this.state.selectedPokemon} />;
+    } else {
+      content = "Error during displaying content";
+    }
 
     return (
       <div className="App">
         <Navbar
           click={this.onButtonClick}
-          activeButton={this.state.activeButton}
+          activeButton={this.state.activeSelection}
         />
         {content}
-        {/* <PokemonDetail pokemon={singlePokemon} /> */}
-        <p>Selected Pokemon: {this.state.pokemonId}</p>
       </div>
     );
   }

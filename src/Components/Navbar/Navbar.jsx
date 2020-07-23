@@ -6,9 +6,11 @@ const Navbar = (props) => {
   let pokemonsButtonClass = ["base-button"];
   let typesButtonClass = ["base-button"];
 
-  props.activeButton === "pokemons"
-    ? pokemonsButtonClass.push("active-button")
-    : typesButtonClass.push("active-button");
+  if (props.activeButton === "pokemons") {
+    pokemonsButtonClass.push("active-button");
+  } else if (props.activeButton === "types") {
+    typesButtonClass.push("active-button");
+  }
 
   console.log("Pokemon button class: " + pokemonsButtonClass);
   console.log("Type button class: " + typesButtonClass);

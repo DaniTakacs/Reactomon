@@ -1,10 +1,13 @@
 import React from "react";
+import "./TypeList.css";
 
 const TypeList = (props) => {
   return (
-    <div>
+    <div className="jumbotron">
       {props.types.map((type) => (
-        <div key={type.id}>{type.name}</div>
+        <div className="label" key={type.id}>
+          {type.name}
+        </div>
       ))}
     </div>
   );

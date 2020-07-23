@@ -1,0 +1,20 @@
+.jumbotron {
+  width: 51%;
+  height: auto;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-image: radial-gradient(silver, white);
+}
+
+.label {
+  height: 30px;
+  width: 90px;
+  background-color: #ffcb05;
+  border-radius: 12px;
+  border: 1px solid #d6ab0e;
+  margin: 5px;
+  padding: 7px;
+  text-align: center;
+}
