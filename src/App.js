@@ -5,6 +5,7 @@ import PokemonList from "./Components/PokemonList/PokemonList";
 import TypeList from "./Components/TypeList/TypeList";
 import PokemonDetail from "./Components/PokemonDetail/PokemonDetail";
 import axios from "axios";
+import ThemeContext from "./context/ThemeContext.js";
 
 const App = (props) => {
   const [State, SetAppState] = useState({

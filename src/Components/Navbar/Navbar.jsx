@@ -11,6 +11,9 @@ const StyledPokemonButton = styled.button`
   border-radius: 12px;
   margin-left: 100px;
   margin-right: 100px;
+  :focus {
+    outline: none;
+  }
 `;
 
 const StyledTypesButton = styled.button`
@@ -21,6 +24,9 @@ const StyledTypesButton = styled.button`
   border-radius: 12px;
   margin-left: 100px;
   margin-right: 100px;
+  :focus {
+    outline: none;
+  }
 `;
 
 const Navbar = (props) => {

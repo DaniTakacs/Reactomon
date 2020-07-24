@@ -13,7 +13,12 @@ const PokemonDetail = (props) => {
           ></img>
         </div>
         <div className={classes.CardText}>
-          <p>Name: {props.pokemon.name}</p>
+          <p>
+            Name:{" "}
+            {props.pokemon.name.charAt(0).toUpperCase() +
+              props.pokemon.name.slice(1)}
+          </p>
+
           <p>Height: {props.pokemon.height}</p>
           <p>Weight: {props.pokemon.weight}</p>
         </div>
