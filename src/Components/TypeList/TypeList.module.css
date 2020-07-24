@@ -1,5 +1,5 @@
-.jumbotron {
-  width: 50%;
+.Jumbotron {
+  width: 51%;
   height: auto;
   margin: 30px auto;
   display: flex;
@@ -8,15 +8,13 @@
   background-image: radial-gradient(silver, white);
 }
 
-.card {
-  height: 90px;
-  width: 120px;
+.Label {
+  height: 30px;
+  width: 90px;
   background-color: #ffcb05;
   border-radius: 12px;
   border: 1px solid #d6ab0e;
-  box-shadow: 5px 10px silver;
-  margin: 10px;
+  margin: 5px;
   padding: 7px;
   text-align: center;
-  cursor: pointer;
 }

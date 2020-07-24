@@ -1,5 +1,5 @@
 import React from "react";
-import "./PokemonList.css";
+import classes from "./PokemonList.module.css";
 
 const PokemonList = (props) => {
   const createImgPath = (path) => {
@@ -7,10 +7,10 @@ const PokemonList = (props) => {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
   };
   return (
-    <div className="jumbotron">
+    <div className={classes.Jumbotron}>
       {props.pokemons.map((pokemon) => (
         <div
-          className="card"
+          className={classes.Card}
           key={pokemon.name}
           onClick={() => props.click(pokemon.name)}
         >
