@@ -1,38 +1,47 @@
 import React from "react";
 import banner from "./pokemon_banner.png";
-import "./Navbar.css";
+import styled from "styled-components";
+
+const StyledPokemonButton = styled.button`
+  background-color: ${(props) =>
+    props.alt === "pokemons" ? "#3a5da2" : "white"};
+  color: ${(props) => (props.alt === "pokemons" ? "#facc00" : "black")};
+  font: inherit;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-left: 100px;
+  margin-right: 100px;
+`;
+
+const StyledTypesButton = styled.button`
+  background-color: ${(props) => (props.alt === "types" ? "#3a5da2" : "white")};
+  color: ${(props) => (props.alt === "types" ? "#facc00" : "black")};
+  font: inherit;
+  cursor: pointer;
+  border-radius: 12px;
+  margin-left: 100px;
+  margin-right: 100px;
+`;
 
 const Navbar = (props) => {
-  let pokemonsButtonClass = ["base-button"];
-  let typesButtonClass = ["base-button"];
-
-  if (props.activeButton === "pokemons") {
-    pokemonsButtonClass.push("active-button");
-  } else if (props.activeButton === "types") {
-    typesButtonClass.push("active-button");
-  }
-
-  console.log("Pokemon button class: " + pokemonsButtonClass);
-  console.log("Type button class: " + typesButtonClass);
-
   return (
     <div>
       <img src={banner} alt="Pokemon Banner"></img>
       <p></p>
-      <button
-        className={pokemonsButtonClass.join(" ")}
+      <StyledPokemonButton
+        alt={props.activeButton}
         onClick={props.click}
         value="pokemons"
       >
         Pokemons
-      </button>
-      <button
-        className={typesButtonClass.join(" ")}
+      </StyledPokemonButton>
+      <StyledTypesButton
+        alt={props.activeButton}
         onClick={props.click}
         value="types"
       >
         Types
-      </button>
+      </StyledTypesButton>
     </div>
   );
 };
